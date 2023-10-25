@@ -1,44 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LoginScreen</title>
 
-    <link
-      rel="stylesheet"
-      href="../css/bootstrap-5.3.1-dist/css/bootstrap.min.css"
-    />
-  </head>
-  <body>
-    <div class="container-fluid border border-primary">
-      <header class="border-bottom p-3 mb-3">
-        <div class="row d-flex align-items-center justify-content-start">
-          <!--start só pra deixar a logo no canto, ai tem q ver se precisa de mais itens-->
-          <div class="col-6">LOGO?</div>
-        </div>
-      </header>
-      <div class="row mb-3 justify-content-center">
-        <div class="col-6 border border-primmary p-4">
-          <h1 class="text-center mb-3">Login</h1>
-          <form>
-            <div class="row mb-3">
-              <label for="inputEmail" class="form-label"
-                >Endereço de e-mail:</label
-              >
-              <input type="email" id="inputEmail" class="form-control" />
-            </div>
-            <div class="row mb-3">
-              <label for="inputSenha">Senha:</label>
-              <input type="password" id="inputSenha" class="form-control" />
-            </div>
-            <div class="row d-flex justify-content-around">
-              <button class="col-3 btn btn-secondary">Recuperar senha</button>
-              <button class="col-4 btn btn-success">Entrar</button>
-            </div>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LoginScreen</title>
+
+  <link rel="stylesheet" href="../css/bootstrap-5.3.1-dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <header class="p-3">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
+          <a href="#" class="d-flex align-items-center text-decoration-none">
+            <svg width="40" height="32" class="bi me-2" style="fill: rgba(0, 0, 0, 1);">
+              <path
+                d="M21.45 8.74A2.23 2.23 0 0 1 21.64 7a3.51 3.51 0 0 0 .24-2.47 3.55 3.55 0 0 0-2.45-2.45 3.51 3.51 0 0 0-2.43.28 2.23 2.23 0 0 1-1.7.19 10.07 10.07 0 0 0-6.53 0 9.87 9.87 0 0 0-6.23 6.18 10.07 10.07 0 0 0 0 6.53A2.23 2.23 0 0 1 2.36 17a3.51 3.51 0 0 0-.24 2.47 3.55 3.55 0 0 0 2.45 2.45A3.51 3.51 0 0 0 7 21.64a2.23 2.23 0 0 1 1.7-.19A9.83 9.83 0 0 0 12 22a10.33 10.33 0 0 0 3.27-.54 9.87 9.87 0 0 0 6.19-6.19 10.07 10.07 0 0 0-.01-6.53zM12 7a5 5 0 0 0-5 5H5a7 7 0 0 1 7-7z">
+              </path>
+            </svg>
+          </a>
+
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-2">Home</a></li>
+            <li><a href="#" class="nav-link px-2">Features</a></li>
+            <li><a href="#" class="nav-link px-2">Pricing</a></li>
+            <li><a href="#" class="nav-link px-2">FAQs</a></li>
+            <li><a href="#" class="nav-link px-2">About</a></li>
+          </ul>
+
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
           </form>
+
+          <div class="text-end">
+            <button class="btn btn-outline-primary me-2">Login</button>
+            <a href="cadastro.html" class="btn btn-warning">Sign-up</a>
+          </div>
         </div>
       </div>
+    </header>
+
+    <div class="row my-3 justify-content-center">
+      <div class="col-6 border border-primary py-3 px-4">
+        <h2 class="text-center mb-3">Login</h2>
+        <form>
+          <div class="mb-3">
+            <label for="inputEmail" class="form-label">Endereço de e-mail:</label>
+            <input type="email" id="inputEmail" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="inputSenha">Senha:</label>
+            <input type="password" id="inputSenha" class="form-control" />
+          </div>
+
+          <div class="d-flex justify-content-end align-items-center">
+            <button class="mx-3 btn btn-secondary">Recuperar senha</button>
+            <button class="btn btn-success">Entrar</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
