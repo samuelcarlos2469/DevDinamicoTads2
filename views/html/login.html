@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LoginScreen</title>
+
+    <link
+      rel="stylesheet"
+      href="../css/bootstrap-5.3.1-dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container-fluid border border-primary">
+      <header class="border-bottom p-3 mb-3">
+        <div class="row d-flex align-items-center justify-content-start">
+          <!--start só pra deixar a logo no canto, ai tem q ver se precisa de mais itens-->
+          <div class="col-6">LOGO?</div>
+        </div>
+      </header>
+      <div class="row mb-3 justify-content-center">
+        <div class="col-6 border border-primmary p-4">
+          <h1 class="text-center mb-3">Login</h1>
+          <form>
+            <div class="row mb-3">
+              <label for="inputEmail" class="form-label"
+                >Endereço de e-mail:</label
+              >
+              <input type="email" id="inputEmail" class="form-control" />
+            </div>
+            <div class="row mb-3">
+              <label for="inputSenha">Senha:</label>
+              <input type="password" id="inputSenha" class="form-control" />
+            </div>
+            <div class="row d-flex justify-content-around">
+              <button class="col-3 btn btn-secondary">Recuperar senha</button>
+              <button class="col-4 btn btn-success">Entrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
