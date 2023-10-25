@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+
+    <link
+      rel="stylesheet"
+      href="../css/bootstrap-5.3.1-dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container-fluid border border-primary">
+      <header class="border-bottom p-3 mb-3">
+        <div class="row d-flex align-items-center justify-content-start">
+          <!--start só pra deixar a logo no canto, ai tem q ver se precisa de mais itens-->
+          <div class="col-6">LOGO?</div>
+        </div>
+      </header>
+      <div class="row mb-3 justify-content-center">
+        <div class="col-8 border border-primary p-4">
+          <h2 class="text-center mb-3">Realize seu cadastro</h2>
+          <form>
+            <div class="row mb-3">
+              <label for="inputName" class="form-label">Nome Completo:</label>
+              <input type="text" id="inputName" class="form-control" />
+            </div>
+            <div class="row mb-3">
+              <label
+                for="cpf"
+                class="form-label"
+                aria-describedby="requisitosCpf"
+                >CPF:</label
+              >
+              <input type="number" id="cpf" class="form-control" />
+              <div id="requisitosCpf" class="form-text">
+                Insira os 11 dígitos, apenas números
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputEmail" class="form-label">Email:</label>
+              <input type="email" id="inputEmail" class="form-control" />
+            </div>
+            <div class="row mb-3">
+              <label for="dataNasc" class="form-label"
+                >Data de nascimento:</label
+              >
+              <input type="date" id="dataNasc" class="form-control" />
+            </div>
+            <div class="row mb-3">
+              <label
+                for="inputSenha"
+                class="form-label"
+                aria-describedby="requisitosSenha"
+                >Senha:</label
+              >
+              <input type="password" id="inputSenha" class="form-control" />
+              <div id="requisitosSenha" class="form-text">
+                Sua senha deve ser composta de números e letras, sem espaços nem
+                caracteres especiais
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="confirmeSenha" class="form-label"
+                >Confirme a senha:</label
+              >
+              <input type="password" id="confirmeSenha" class="form-control" />
+            </div>
+            <div class="row d-flex justify-content-around">
+              <button class="col-3 btn btn-secondary">Já sou cadastrado</button>
+              <button class="col-5 btn btn-success">Criar conta!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
