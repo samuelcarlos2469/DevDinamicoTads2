@@ -1,23 +1,23 @@
 const Conexao = require("./conexao");
 
-class ProdutoModel {
-  tabela = "produto";
+class ListaCarrinho {
+  tabela = "listacarrinho";
   db = new Conexao();
 
   constructor() {
     this.db.conectar();
   }
 
-  async getAllProdutos() {
+  async getAllLista() {
     try {
-      const result = await this.db.query(`SELECT * FROM ${this.tabela}`, []);
+      const result = await this.db.query(`SELECT * FROM ${this.tabela}`);
       return result;
     } catch (err) {
       throw err;
     }
   }
 
-  async getProdutoById(id) {
+  async getListaById(id) {
     try {
       const result = await this.db.query(
         `SELECT * FROM ${this.tabela} WHERE id = ?`,
@@ -29,22 +29,22 @@ class ProdutoModel {
     }
   }
 
-  async add(nome, descricao, preco, imagem) {
+  async add(idCarrinho, idProduto, quantidade, valorTotal) {
     try {
       await this.db.query(
-        `INSERT INTO ${this.tabela} (nome, descricao, preco) VALUES (?, ?, ?)`,
-        [nome, descricao, preco]
+        `INSERT INTO ${this.tabela} (idCarrinho, idProduto, quantidade, valorTotal) VALUES (?, ?, ?, ?)`,
+        [idCarrinho, idProduto, quantidade, valorTotal]
       );
     } catch (err) {
       throw err;
     }
   }
 
-  async edita(id, nome, descricao, preco, imagem) {
+  async edita(idProduto, quantidade, valorTotal) {
     try {
       await this.db.query(
-        `UPDATE ${this.tabela} SET nome = ?, descricao = ?, preco = ? WHERE id = ?`,
-        [nome, descricao, preco, id]
+        `UPDATE ${this.tabela} SET quantidade = ?, valorTotal = ? WHERE idProduto = ?`,
+        [quantidade, valorTotal, idProduto]
       );
     } catch (err) {
       throw err;
