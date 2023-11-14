@@ -1,14 +1,11 @@
 import { Storage } from "./localStorage.js";
 
 const storage = new Storage();
+const produtos = storage.getProdutos();
 
-function populate() {
+export function populate(produtos) {
   const lista = document.querySelector("#lista");
   lista.innerHTML = "";
-
-  const produtos = storage.getProdutos();
-
-  console.log(produtos);
 
   produtos.forEach((element) => {
     lista.innerHTML += `
@@ -30,4 +27,4 @@ function populate() {
   });
 }
 
-populate();
+populate(produtos);

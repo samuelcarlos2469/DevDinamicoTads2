@@ -91,17 +91,19 @@ export class Storage {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
   }
 
+  searchProdutos(search) {
+    const produtos = JSON.parse(localStorage.getItem("produtos"));
+    return produtos.filter((produto) =>
+      produto.nome.toLowerCase().includes(search.toLowerCase())
+    );
+  }
+
   getCarrinho() {
     return JSON.parse(localStorage.getItem("carrinho"));
   }
 
   getProdutos() {
     return JSON.parse(localStorage.getItem("produtos"));
-  }
-
-  getCarrinho(id) {
-    const carrinho = JSON.parse(localStorage.getItem("carrinho"));
-    return carrinho.find((produto) => produto.id == id);
   }
 
   getProduto(id) {
