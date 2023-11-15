@@ -120,6 +120,11 @@ export class Storage {
   addProdutoCarrinho(id) {
     const produto = this.getProdutoById(id);
     const carrinho = JSON.parse(localStorage.getItem("carrinho"));
+    carrinho.filter((produto) => produto.id == id);
+    if (carrinho) {
+      produto.quantidade += 1;
+      produto.total = preco * quantidade;
+    }
     carrinho.push(produto);
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
   }
