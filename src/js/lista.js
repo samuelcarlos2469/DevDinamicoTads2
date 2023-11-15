@@ -1,4 +1,5 @@
 import { Storage } from "./localStorage.js";
+import { addCarrinho } from "./addCarrinho.js";
 
 const storage = new Storage();
 const produtos = storage.getProdutos();
@@ -19,7 +20,9 @@ export function populate(produtos) {
                 <p class="card-text">R$ ${element.preco.toLocaleString(
                   "pt-BR"
                 )} </p>
-                <a href="#" class="btn btn-success">Comprar</a>
+                <button onClick="addCarrinho(${
+                  element.id
+                })" class="btn btn-success">Comprar</button>
                 </div>
             </div>
         </div>

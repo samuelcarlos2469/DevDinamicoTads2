@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../src/bootstrap/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <button class="btn btn-success">Comprar</button>
+
+    <script type="module">
+        import { Storage } from "../src/js/localStorage.js";
+
+        const storage = new Storage();
+
+        function addCarrinho(id) {
+            const produto = storage.getProdutos(id);
+
+            console.log(produto);
+
+            storage.addProdutoCarrinho(produto);
+
+            console.log(storage.getCarrinho());
+        }
+
+        const button = document.querySelector('button');
+        button.addEventListener('click', () => {
+            addCarrinho(3);
+        });
+    </script>
+</body>
+
+</html>
