@@ -8,7 +8,5 @@ search.addEventListener("input", (event) => {
   const procura = search.value;
   const produtos = storage.searchProdutos(procura);
 
-  console.log(produtos);
-
   populate(produtos);
 });
