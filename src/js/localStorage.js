@@ -75,8 +75,16 @@ export class Storage {
       },
     ];
 
-    this.produtos = localStorage.setItem("produtos", JSON.stringify(produtos));
-    this.carrinho = localStorage.setItem("carrinho", JSON.stringify([]));
+    let prods = this.getProdutos();
+    let carrinho = this.getCarrinho();
+
+    if (!prods) {
+      localStorage.setItem("produtos", JSON.stringify(produtos));
+    }
+
+    if (!carrinho) {
+      localStorage.setItem("carrinho", JSON.stringify([]));
+    }
   }
 
   addProdutos(produto) {
@@ -85,7 +93,8 @@ export class Storage {
     localStorage.setItem("produtos", JSON.stringify(produtos));
   }
 
-  addProdutoCarrinho(produto) {
+  addProdutoCarrinho(id) {
+    const produto = this.getProdutoById(id);
     const carrinho = JSON.parse(localStorage.getItem("carrinho"));
     carrinho.push(produto);
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
@@ -110,9 +119,9 @@ export class Storage {
     return JSON.parse(localStorage.getItem("produtos"));
   }
 
-  getProduto(id) {
+  getProdutoById(id) {
     const produtos = JSON.parse(localStorage.getItem("produtos"));
-    return produtos.find((produto) => produto.id == id);
+    return produtos.find((produto) => produto.id === id);
   }
 
   clear() {

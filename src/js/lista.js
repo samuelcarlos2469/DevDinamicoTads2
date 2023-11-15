@@ -1,15 +1,15 @@
 import { Storage } from "./localStorage.js";
-import { addCarrinho } from "./addCarrinho.js";
 
 const storage = new Storage();
 const produtos = storage.getProdutos();
 
-export function populate(produtos) {
+function populate(produtos) {
   const lista = document.querySelector("#lista");
   lista.innerHTML = "";
+  let html = "";
 
   produtos.forEach((element) => {
-    lista.innerHTML += `
+    html += `
         <div class="col-3">
             <div class="card" style="width: 18rem;">
                 <img src="${
@@ -20,14 +20,32 @@ export function populate(produtos) {
                 <p class="card-text">R$ ${element.preco.toLocaleString(
                   "pt-BR"
                 )} </p>
-                <button onClick="addCarrinho(${
+                <button id="id${
                   element.id
-                })" class="btn btn-success">Comprar</button>
+                }" class="btn btn-success">Comprar</button>
                 </div>
             </div>
         </div>
     `;
   });
+
+  lista.innerHTML = html;
 }
 
 populate(produtos);
+
+produtos.forEach((element) => {
+  const btn = lista.querySelector(`#id${element.id}`);
+  btn.addEventListener("click", () => {
+    storage.addProdutoCarrinho(element.id);
+  });
+});
+
+const search = document.querySelector("#search");
+
+search.addEventListener("input", () => {
+  const procura = search.value;
+  const prods = storage.searchProdutos(procura);
+
+  populate(prods);
+});
