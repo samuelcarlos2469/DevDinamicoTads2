@@ -26,7 +26,11 @@ export function preencherCarrinho(produtos) {
             </div>
             <div>${element.nome}</div>
             <p class="">R$ ${element.preco.toLocaleString("pt-BR")} </p>
-            <div>
+
+            <div class="input-group">
+            <button type="button" class="btn btn-outline-dark">-</button>
+            <input type="text" class="form-control text-center border-dark" value="1">
+            <button type="button" class="btn btn-outline-dark">+</button>
             <button class="btn btn-danger" onclick=removeProdutoCarrinho(${
               element.id
             })>Remover</button>
