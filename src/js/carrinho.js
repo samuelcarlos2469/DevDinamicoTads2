@@ -11,9 +11,9 @@ export function preencherCarrinho(produtos) {
   produtos.forEach((element) => {
     html += `
         <li class="list-group-item">
-        <div class="d-flex g-2 justify-content-between align-items-center">
-            <div>
-                <img
+            <div class="d-flex g-2 justify-content-between align-items-center">
+                <div>
+                    <img
                 src="${element.imagem}" class="object-fit-scale" height="150">
             </div>
             <div>${element.nome}</div>
