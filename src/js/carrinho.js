@@ -3,15 +3,6 @@ import { Storage } from "./localStorage.js";
 const storage = new Storage();
 const carrinho = document.querySelector("#carrinho");
 
-export function addCarrinho(id) {
-  const produto = storage.getProdutos(id);
-
-  console.log(produto);
-
-  storage.addProdutoCarrinho(produto);
-
-  console.log(storage.getCarrinho());
-}
 export function preencherCarrinho(produtos) {
   const listacarrinho = document.querySelector("#lista-carrinho");
   listacarrinho.innerHTML = "";
