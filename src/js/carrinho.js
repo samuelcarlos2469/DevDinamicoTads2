@@ -1,32 +1,36 @@
 import { Storage } from "./localStorage.js";
 
 const storage = new Storage();
-const carrinho = document.querySelector("#carrinho");
 
-export function preencherCarrinho(produtos) {
+const car = storage.getCarrinho();
+
+function populate(produtos) {
   const listacarrinho = document.querySelector("#lista-carrinho");
   listacarrinho.innerHTML = "";
+  let html = "";
 
   produtos.forEach((element) => {
-    listacarrinho.innerHTML += `
+    html += `
         <li class="list-group-item">
-        <div class="d-flex g-2 justify-content-between align-items-center">
-            <div>
-                <img
-                src="${element.imagem}" class="object-fit-scale" height="150">
+            <div class="d-flex g-2 justify-content-between align-items-center">
+                <div>
+                    <img src="${
+                      element.imagem
+                    }" class="card-img-top object-fit-scale"
+                        height="100" />
+                </div>
+                <div>${element.nome}</div>
+                <div>R$ ${element.preco.toLocaleString("pt-BR")}</div>
+                <div><button class="btn btn-danger">Remover</button></div>
             </div>
-            <div>${element.nome}</div>
-            <p class="">R$ ${element.preco.toLocaleString("pt-BR")} </p>
-            <div>
-            <button class="btn btn-danger" onclick=removeProdutoCarrinho(${
-              element.id
-            })>Remover</button>
-            </div>
-        </div>
-    </li>
+        </li>
     `;
   });
+
+  listacarrinho.innerHTML = html;
 }
+
+populate(car);
 
 function removeProdutoCarrinho(id) {
   const carrinho = getCarrinho();
