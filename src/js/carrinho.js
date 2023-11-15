@@ -6,9 +6,10 @@ const carrinho = document.querySelector("#carrinho");
 export function preencherCarrinho(produtos) {
   const listacarrinho = document.querySelector("#lista-carrinho");
   listacarrinho.innerHTML = "";
+  let html = "";
 
   produtos.forEach((element) => {
-    listacarrinho.innerHTML += `
+    html += `
         <li class="list-group-item">
         <div class="d-flex g-2 justify-content-between align-items-center">
             <div>
@@ -30,10 +31,11 @@ export function preencherCarrinho(produtos) {
     </li>
     `;
   });
+  listacarrinho.innerHTML = html;
 }
 
-function removeProdutoCarrinho(id) {
+function alterarQuantidade(id) {
   const carrinho = getCarrinho();
-  carrinho = carrinho.filter((element) => element.id !== id);
+  carrinho = carrinho.filter((element) => element.id == id);
   attCarrinho(carrinho);
 }
