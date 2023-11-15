@@ -102,6 +102,10 @@ export class Storage {
     return JSON.parse(localStorage.getItem("carrinho"));
   }
 
+  attCarrinho(carrinho) {
+    carrinho = localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  }
+
   getProdutos() {
     return JSON.parse(localStorage.getItem("produtos"));
   }
