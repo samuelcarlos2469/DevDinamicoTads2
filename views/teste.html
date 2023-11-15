@@ -17,20 +17,12 @@
 
         const storage = new Storage();
 
-        function addCarrinho(id) {
-            const produto = storage.getProdutos(id);
+        console.log(storage.getCarrinho());
+        console.log(storage.getProdutoById(5))
 
-            console.log(produto);
+        storage.addProdutoCarrinho(5);
 
-            storage.addProdutoCarrinho(produto);
-
-            console.log(storage.getCarrinho());
-        }
-
-        const button = document.querySelector('button');
-        button.addEventListener('click', () => {
-            addCarrinho(3);
-        });
+        console.log(storage.getCarrinho());
     </script>
 </body>
 
