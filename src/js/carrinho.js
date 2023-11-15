@@ -39,3 +39,6 @@ function alterarQuantidade(id) {
   carrinho = carrinho.filter((element) => element.id == id);
   attCarrinho(carrinho);
 }
+
+//SOCORRO
+function meSocorra() {}
