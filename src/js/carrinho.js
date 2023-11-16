@@ -1,7 +1,6 @@
 import { Storage } from "./localStorage.js";
 
 const storage = new Storage();
-
 const car = storage.getCarrinho();
 
 function populate(produtos) {
@@ -19,24 +18,21 @@ function populate(produtos) {
                     }" class="card-img-top object-fit-scale"
                         height="100" />
                 </div>
-                <div>${element.nome}</div>
-                <div>R$ ${element.preco.toLocaleString("pt-BR")}</div>
 
-                <div class="input-group">
+                <div>${element.nome}</div>
+                <div>R$ ${element.total.toLocaleString("pt-BR")}</div>
                   
-                  <input type="number" id= "inputqtd${
-                    element.id
-                  }" class="form-control text-center border-dark" value="${
+                <input type="number" id="id${
+                  element.id
+                }" class="form-control w-25 text-center" value="${
       element.quantidade
-    }">
-                  
-                  
-                  <button class="btn btn-danger" onclick=alterarQuantidade(${
-                    element.id
-                  }, 0)>Remover
-                  </button>
-                </div>
-        </div>
+    }" />
+      
+              <button class="btn btn-danger" onclick=alterarQuantidade(${
+                element.id
+              }, 0)>Remover
+              </button>
+          </div>
         </li>
     `;
   });
@@ -48,19 +44,26 @@ populate(car);
 
 car.forEach((element) => {
   const listacarrinho = document.querySelector("#lista-carrinho");
-  const btn = listacarrinho.querySelector(`#inputqtd${element.id}`);
-  btn.addEventListener("change", () => {
-    alterarQuantidade(element.id, btn.value);
+  const inputQtde = listacarrinho.querySelector(`#id${element.id}`);
+  inputQtde.addEventListener("change", () => {
+    alterarQuantidade(element.id, inputQtde.value);
   });
 });
 
 function alterarQuantidade(id, qtd) {
-  const carrinho = car.filter((element) => element.id == id);
-  //revisar aqui
-  produto.quantidade = qtd;
-  produto.total = qtd * preco;
-  if (produto.quantidade == 0) {
-    carrinho = car.filter((element) => element.id !== id);
+  const filtrado = car.filter((element) => element.id == id);
+  const index = car.indexOf(filtrado[0]);
+
+  filtrado[0].quantidade = qtd;
+  filtrado[0].total = qtd * filtrado[0].preco;
+
+  if (qtd === 0) {
+    car = car.filter((element) => element.id !== id);
+    storage.attCarrinho(carrinho);
+  } else {
+    car[index] = filtrado[0];
+    storage.attCarrinho(car);
   }
-  storage.attCarrinho(carrinho);
+
+  window.location.reload();
 }
