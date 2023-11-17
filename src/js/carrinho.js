@@ -1,6 +1,7 @@
 import { Storage } from "./localStorage.js";
 
 const storage = new Storage();
+
 const car = storage.getCarrinho();
 
 function populate(produtos) {
@@ -64,26 +65,19 @@ populate(car);
 
 car.forEach((element) => {
   const listacarrinho = document.querySelector("#lista-carrinho");
-  const inputQtde = listacarrinho.querySelector(`#id${element.id}`);
-  inputQtde.addEventListener("change", () => {
-    alterarQuantidade(element.id, inputQtde.value);
+  const btn = listacarrinho.querySelector(`#inputqtd${element.id}`);
+  btn.addEventListener("change", () => {
+    alterarQuantidade(element.id, btn.value);
   });
 });
 
 function alterarQuantidade(id, qtd) {
-  const filtrado = car.filter((element) => element.id == id);
-  const index = car.indexOf(filtrado[0]);
-
-  filtrado[0].quantidade = qtd;
-  filtrado[0].total = qtd * filtrado[0].preco;
-
-  if (qtd === 0) {
-    car = car.filter((element) => element.id !== id);
-    storage.attCarrinho(carrinho);
-  } else {
-    car[index] = filtrado[0];
-    storage.attCarrinho(car);
+  const carrinho = car.filter((element) => element.id == id);
+  //revisar aqui
+  produto.quantidade = qtd;
+  produto.total = qtd * preco;
+  if (produto.quantidade == 0) {
+    carrinho = car.filter((element) => element.id !== id);
   }
-
-  window.location.reload();
+  storage.attCarrinho(carrinho);
 }
