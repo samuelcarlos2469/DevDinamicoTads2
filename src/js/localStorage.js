@@ -158,3 +158,5 @@ export class Storage {
     localStorage.clear();
   }
 }
+
+//verificando se o git vai zua
