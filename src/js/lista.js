@@ -38,6 +38,7 @@ produtos.forEach((element) => {
   const btn = lista.querySelector(`#id${element.id}`);
   btn.addEventListener("click", () => {
     storage.addProdutoCarrinho(element.id);
+    window.location.reload();
   });
 });
 
@@ -49,3 +50,13 @@ search.addEventListener("input", () => {
 
   populate(prods);
 });
+
+const spanCarrinho = document.querySelector("#quantia");
+const carrinho = storage.getCarrinho();
+
+if (carrinho && carrinho.length > 0) {
+  spanCarrinho.classList.remove("d-none");
+  spanCarrinho.textContent = carrinho.length;
+} else {
+  spanCarrinho.classList.add("d-none");
+}

@@ -1,11 +1,11 @@
 import { Storage } from "./localStorage.js";
 
 const storage = new Storage();
-
 const car = storage.getCarrinho();
 
+const listacarrinho = document.querySelector("#lista-carrinho");
+
 function populate(produtos) {
-  const listacarrinho = document.querySelector("#lista-carrinho");
   listacarrinho.innerHTML = "";
   let html = "";
 
@@ -13,31 +13,23 @@ function populate(produtos) {
     html += `
         <li class="list-group-item">
             <div class="d-flex g-2 justify-content-between align-items-center">
-                <div class="col-3">
+                <div>
                     <img src="${
                       element.imagem
                     }" class="card-img-top object-fit-scale"
                         height="100" />
                 </div>
 
-                <div class="col-3 text-center">${element.nome}</div>
-                
-                
-                <div class="input-group me-3">
+                <div>${element.nome}</div>
+                <div>R$ ${element.total.toLocaleString("pt-BR")}</div>
+                  
                 <input type="number" id="id${
                   element.id
-                }" class="form-control" value="${element.quantidade}" >
-                  <span class="input-group-text">R$</span>
-                  <span class="input-group-text">${element.total.toLocaleString(
-                    "pt-BR"
-                  )}</span>
-                </div>
-
-                
+                }" class="form-control w-25 text-center" value="${
+      element.quantidade
+    }" />
       
-              <button class="btn btn-danger col-2" onclick=alterarQuantidade(${
-                element.id
-              }, 0)>Remover
+              <button class="btn btn-danger" id="remove${element.id}">Remover
               </button>
           </div>
         </li>
@@ -46,38 +38,45 @@ function populate(produtos) {
 
   listacarrinho.innerHTML = html;
 }
-/*
-esse aqui pra substituir o do parcelamento talvez
-<div class="input-group mb-3">
-  <input type="text" class="form-control" aria-label="Text input with dropdown button">
-  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="#">Separated link</a></li>
-  </ul>
-</div>
-*/
 
 populate(car);
 
 car.forEach((element) => {
-  const listacarrinho = document.querySelector("#lista-carrinho");
-  const btn = listacarrinho.querySelector(`#inputqtd${element.id}`);
-  btn.addEventListener("change", () => {
-    alterarQuantidade(element.id, btn.value);
+  const inputQtde = listacarrinho.querySelector(`#id${element.id}`);
+  const remove = listacarrinho.querySelector(`#remove${element.id}`);
+
+  remove.addEventListener("click", () => {
+    alterarQuantidade(element.id, 0);
+  });
+
+  inputQtde.addEventListener("change", () => {
+    alterarQuantidade(element.id, inputQtde.value);
   });
 });
 
 function alterarQuantidade(id, qtd) {
-  const carrinho = car.filter((element) => element.id == id);
-  //revisar aqui
-  produto.quantidade = qtd;
-  produto.total = qtd * preco;
-  if (produto.quantidade == 0) {
-    carrinho = car.filter((element) => element.id !== id);
+  const filtrado = car.filter((element) => element.id == id);
+  const index = car.indexOf(filtrado[0]);
+
+  filtrado[0].quantidade = qtd;
+  filtrado[0].total = qtd * filtrado[0].preco;
+
+  if (Number(qtd) === 0) {
+    let compras = car.filter((element) => element.id !== id);
+    storage.attCarrinho(compras);
+  } else {
+    car[index] = filtrado[0];
+    storage.attCarrinho(car);
   }
-  storage.attCarrinho(carrinho);
+
+  window.location.reload();
 }
+
+const total = document.querySelector("#total");
+let all = 0;
+
+car.forEach((element) => {
+  all += element.total;
+});
+
+total.innerHTML = `R$ ${all.toLocaleString("pt-BR")}`;
