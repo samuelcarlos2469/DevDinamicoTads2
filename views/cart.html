@@ -92,20 +92,16 @@
                     <img src="../src/img/cartao.svg" width="100" />
                   </div>
 
-                  <select class="form-select" disabled>
+                  <select class="form-select" id="parcelas" disabled>
                     <option selected>Parcelamento:</option>
-                    <option value="1x">1 vezes sem juros</option>
-                    <option value="2x">2 vezes sem juros</option>
-                    <option value="3x">3 vezes sem juros</option>
-                    <option value="4x">4 vezes sem juros</option>
-                    <option value="5x">5 vezes sem juros</option>
-                    <option value="6x">6 vezes sem juros</option>
-                    <option value="7x">7 vezes sem juros</option>
-                    <option value="8x">8 vezes sem juros</option>
-                    <option value="9x">9 vezes sem juros</option>
-                    <option value="10x">10 vezes sem juros</option>
                   </select>
                 </div>
+              </div>
+            </div>
+
+            <div class="border p-3 mt-3 d-none" id="qrPix">
+              <div class="d-flex justify-content-center align-items-center">
+                <div id="qr-code"></div>
               </div>
             </div>
           </div>
@@ -113,13 +109,15 @@
 
         <div class="row mt-3">
           <a href="index.html" class="btn btn-secondary me-3 col-2">Adicionar mais itens</a>
-          <a href="#" class="btn btn-primary col-2">Finalizar Pedido</a>
+          <a href="finalizado.html" class="btn btn-primary col-2 d-none" id="btnFinalizar">Finalizar Pedido</a>
         </div>
       </div>
     </main>
   </div>
 
   <script type="module" src="../src/js/carrinho.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="../src/js/qrcode.js"></script>
 </body>
 
 </html>
