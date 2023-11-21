@@ -21,7 +21,10 @@ function populate(produtos) {
                 </div>
 
                 <div>${element.nome}</div>
-                <div>R$ ${element.total.toLocaleString("pt-BR")}</div>
+                <div>R$ ${element.total.toLocaleString("pt-BR", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}</div>
                   
                 <input type="number" id="id${
                   element.id
@@ -87,10 +90,12 @@ total.innerHTML = `R$ ${all.toLocaleString("pt-BR", {
 const parcelado = document.querySelector("#cartao");
 const parcelas = document.querySelector("#parcelas");
 const finalizar = document.querySelector("#btnFinalizar");
+const qrCode = document.querySelector("#qrPix");
 
 parcelado.addEventListener("change", () => {
   if (parcelado.checked) {
     parcelas.disabled = false;
+    qrCode.classList.add("d-none");
     parcelas.innerHTML = "<option>Parcelamento:</option>";
 
     for (let i = 1; i <= 10; i++) {

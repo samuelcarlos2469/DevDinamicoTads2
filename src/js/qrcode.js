@@ -20,6 +20,7 @@ pix.addEventListener("change", () => {
   if (pix.checked) {
     generateQRCode();
     qrCode.classList.remove("d-none");
+    qrCode.classList.add("d-flex");
     finalizar.classList.remove("d-none");
   } else {
     qrCode.classList.add("d-none");
