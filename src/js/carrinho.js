@@ -79,4 +79,32 @@ car.forEach((element) => {
   all += element.total;
 });
 
-total.innerHTML = `R$ ${all.toLocaleString("pt-BR")}`;
+total.innerHTML = `R$ ${all.toLocaleString("pt-BR", {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+})}`;
+
+const parcelado = document.querySelector("#cartao");
+const parcelas = document.querySelector("#parcelas");
+const finalizar = document.querySelector("#btnFinalizar");
+
+parcelado.addEventListener("change", () => {
+  if (parcelado.checked) {
+    parcelas.disabled = false;
+    parcelas.innerHTML = "<option>Parcelamento:</option>";
+
+    for (let i = 1; i <= 10; i++) {
+      parcelas.innerHTML += `<option value="${i}">${i} vezes de R$ ${(
+        all / i
+      ).toLocaleString("pt-BR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })} sem juros</option>`;
+    }
+
+    finalizar.classList.remove("d-none");
+  } else {
+    parcelas.disabled = true;
+    finalizar.classList.add("d-none");
+  }
+});

@@ -111,12 +111,6 @@ export class Storage {
     }
   }
 
-  addProdutos(produto) {
-    const produtos = JSON.parse(localStorage.getItem("produtos"));
-    produtos.push(produto);
-    localStorage.setItem("produtos", JSON.stringify(produtos));
-  }
-
   addProdutoCarrinho(id) {
     const produto = this.getProdutoById(id);
     const carrinho = JSON.parse(localStorage.getItem("carrinho"));
