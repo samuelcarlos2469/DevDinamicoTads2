@@ -8,8 +8,8 @@ async function generateQRCode() {
   qrContainer.innerHTML = "";
   new QRCode("qr-code", {
     text: "raifernandes076@gmail.com",
-    height: 250,
-    width: 250,
+    height: 200,
+    width: 200,
     colorLight: "#ffffff",
     colorDark: "#000000",
   });
@@ -20,6 +20,7 @@ pix.addEventListener("change", () => {
   if (pix.checked) {
     generateQRCode();
     qrCode.classList.remove("d-none");
+    qrCode.classList.add("d-flex");
     finalizar.classList.remove("d-none");
   } else {
     qrCode.classList.add("d-none");

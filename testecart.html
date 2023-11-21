@@ -10,11 +10,11 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <header class="p-3 border-bottom">
-        <div class="container">
+        <div class="container container-sm">
           <div
-            class="d-flex align-items-center justify-content-center justify-content-lg-start"
+            class="d-flex align-items-center justify-content-lg-center justify-content-sm-between justify-content-between"
           >
             <a
               href="index.html"
@@ -33,7 +33,7 @@
             </a>
 
             <ul
-              class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+              class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 d-none d-sm-none d-md-none d-lg-flex"
             >
               <li><a href="index.html" class="nav-link px-2">Home</a></li>
               <li><a href="#" class="nav-link px-2">Departamentos</a></li>
@@ -41,57 +41,24 @@
               <li><a href="#" class="nav-link px-2">FAQs</a></li>
               <li><a href="#" class="nav-link px-2">Sobre</a></li>
             </ul>
-
             <div class="text-end">
-              <div class="d-flex align-items-center">
-                <span class="text-wrap text-start">
-                  Seus dados<br />100% seguros
-                </span>
-
-                <svg
-                  width="40"
-                  height="32"
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  width="100"
-                  height="100"
-                  viewBox="0,0,255.9978,255.9978"
+              <a href="cart.html" class="btn btn-primary position-relative">
+                Carrinho
+                <span
+                  id="quantia"
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                 >
-                  <g
-                    fill-opacity="0.74118"
-                    fill="#94d82d"
-                    fill-rule="nonzero"
-                    stroke="none"
-                    stroke-width="1"
-                    stroke-linecap="butt"
-                    stroke-linejoin="miter"
-                    stroke-miterlimit="10"
-                    stroke-dasharray=""
-                    stroke-dashoffset="0"
-                    font-family="none"
-                    font-weight="none"
-                    font-size="none"
-                    text-anchor="none"
-                    style="mix-blend-mode: normal"
-                  >
-                    <g transform="scale(3.55556,3.55556)">
-                      <path
-                        d="M36,10c-7.72,0 -14,6.28 -14,14v4.58789c-2.9302,1.18758 -5,4.05608 -5,7.41211v16c0,4.418 3.582,8 8,8h22c4.418,0 8,-3.582 8,-8v-16c0,-3.35603 -2.0698,-6.22453 -5,-7.41211v-4.58789c0,-7.72 -6.28,-14 -14,-14zM36,18c3.309,0 6,2.691 6,6v4h-12v-4c0,-3.309 2.691,-6 6,-6zM26,36h20c0.552,0 1,0.448 1,1v14c0,0.552 -0.448,1 -1,1h-20c-0.552,0 -1,-0.448 -1,-1v-14c0,-0.552 0.448,-1 1,-1z"
-                      ></path>
-                    </g>
-                  </g>
-                </svg>
-              </div>
+                  1
+                </span>
+              </a>
             </div>
           </div>
         </div>
       </header>
-
       <main class="p-3 mt-2">
-        <div class="container">
+        <div class="container-md">
           <div class="row g-3">
-            <div class="col-8">
+            <div class="col-sm-12 col-md-12 col-lg-8">
               <ul class="list-group list-group-flush" id="lista-carrinho">
                 <li class="list-group-item">
                   <div
@@ -105,261 +72,15 @@
                       />
                     </div>
                     <div class="col-3 text-center">Notebook Acer Nitro 5</div>
-                    <div>R$ 3.299</div>
+                    <div class="text-center col-2">R$ 3.299</div>
 
                     <input
                       type="number"
                       id="id1"
-                      class="form-control w-25 text-center"
+                      class="form-control text-center me-3"
                       value="1"
                     />
-                    <button class="btn btn-danger" id="remove1">Remover</button>
-                  </div>
-                </li>
-
-                <li class="list-group-item">
-                  <div
-                    class="d-flex g-2 justify-content-between align-items-center"
-                  >
-                    <div class="col-3">
-                      <img
-                        src="../src/img/boombox3.jpg"
-                        class="card-img-top object-fit-scale"
-                        height="100"
-                      />
-                    </div>
-                    <div class="col-3 text-center">JBL Boombox 3</div>
-                    <div>R$ 2.145</div>
-
-                    <input
-                      type="number"
-                      id="id2"
-                      class="form-control w-25 text-center"
-                      value="1"
-                    />
-                    <button class="btn btn-danger" id="remove2">Remover</button>
-                  </div>
-                </li>
-
-                <li class="list-group-item">
-                  <div
-                    class="d-flex g-2 justify-content-between align-items-center"
-                  >
-                    <div class="col-3">
-                      <img
-                        src="../src/img/controleXbox.jpg"
-                        class="card-img-top object-fit-scale"
-                        height="100"
-                      />
-                    </div>
-                    <div class="col-3 text-center">Controle Sem Fio Xbox</div>
-                    <div>R$ 330,5</div>
-
-                    <input
-                      type="number"
-                      id="id3"
-                      class="form-control w-25 text-center"
-                      value="1"
-                    />
-                    <button class="btn btn-danger" id="remove3">Remover</button>
-                  </div>
-                </li>
-
-                <li class="list-group-item">
-                  <div
-                    class="d-flex g-2 justify-content-between align-items-center"
-                  >
-                    <div class="col-3">
-                      <img
-                        src="../src/img/galaxyTabs7FE.jpg"
-                        class="card-img-top object-fit-scale"
-                        height="100"
-                      />
-                    </div>
-                    <div class="col-3 text-center">Galaxy Tab S7 FE</div>
-                    <div>R$ 2.299</div>
-
-                    <input
-                      type="number"
-                      id="id4"
-                      class="form-control w-25 text-center"
-                      value="1"
-                    />
-                    <button class="btn btn-danger" id="remove4">Remover</button>
-                  </div>
-                </li>
-
-                <li class="list-group-item">
-                  <div
-                    class="d-flex g-2 justify-content-between align-items-center"
-                  >
-                    <div class="col-3">
-                      <img
-                        src="../src/img/iphone14.jpg"
-                        class="card-img-top object-fit-scale"
-                        height="100"
-                      />
-                    </div>
-                    <div class="col-3 text-center">Iphone 14 256GB</div>
-                    <div>R$ 4.998,99</div>
-
-                    <input
-                      type="number"
-                      id="id5"
-                      class="form-control w-25 text-center"
-                      value="1"
-                    />
-                    <button class="btn btn-danger" id="remove5">Remover</button>
-                  </div>
-                </li>
-
-                <li class="list-group-item">
-                  <div
-                    class="d-flex g-2 justify-content-between align-items-center"
-                  >
-                    <div class="col-3">
-                      <img
-                        src="../src/img/lgDualInverter12000.jpg"
-                        class="card-img-top object-fit-scale"
-                        height="100"
-                      />
-                    </div>
-                    <div class="col-3 text-center">
-                      Ar Condicionado LG 12000
-                    </div>
-                    <div>R$ 2.535</div>
-
-                    <input
-                      type="number"
-                      id="id6"
-                      class="form-control w-25 text-center"
-                      value="1"
-                    />
-                    <button class="btn btn-danger" id="remove6">Remover</button>
-                  </div>
-                </li>
-
-                <li class="list-group-item">
-                  <div
-                    class="d-flex g-2 justify-content-between align-items-center"
-                  >
-                    <div class="col-3">
-                      <img
-                        src="../src/img/motoE13.jpg"
-                        class="card-img-top object-fit-scale"
-                        height="100"
-                      />
-                    </div>
-                    <div class="col-3 text-center">Motorola Moto E13</div>
-                    <div>R$ 549</div>
-
-                    <input
-                      type="number"
-                      id="id7"
-                      class="form-control w-25 text-center"
-                      value="1"
-                    />
-                    <button class="btn btn-danger" id="remove7">Remover</button>
-                  </div>
-                </li>
-
-                <li class="list-group-item">
-                  <div
-                    class="d-flex g-2 justify-content-between align-items-center"
-                  >
-                    <div class="col-3">
-                      <img
-                        src="../src/img/tab26Lite.jpg"
-                        class="card-img-top object-fit-scale"
-                        height="100"
-                      />
-                    </div>
-                    <div class="col-3 text-center">Galaxy Tab S6 Lite 64GB</div>
-                    <div>R$ 1.499</div>
-
-                    <input
-                      type="number"
-                      id="id8"
-                      class="form-control w-25 text-center"
-                      value="1"
-                    />
-                    <button class="btn btn-danger" id="remove8">Remover</button>
-                  </div>
-                </li>
-
-                <li class="list-group-item">
-                  <div
-                    class="d-flex g-2 justify-content-between align-items-center"
-                  >
-                    <div class="col-3">
-                      <img
-                        src="../src/img/tvThingAi50.jpg"
-                        class="card-img-top object-fit-scale"
-                        height="100"
-                      />
-                    </div>
-                    <div class="col-3 text-center">LG Thinq AI 50 40'</div>
-                    <div>R$ 2.079</div>
-
-                    <input
-                      type="number"
-                      id="id9"
-                      class="form-control w-25 text-center"
-                      value="1"
-                    />
-                    <button class="btn btn-danger" id="remove9">Remover</button>
-                  </div>
-                </li>
-
-                <li class="list-group-item">
-                  <div
-                    class="d-flex g-2 justify-content-between align-items-center"
-                  >
-                    <div class="col-3">
-                      <img
-                        src="../src/img/balckWidowRazer.jpg"
-                        class="card-img-top object-fit-scale"
-                        height="100"
-                      />
-                    </div>
-                    <div class="col-3 text-center">
-                      Teclado Razer BlackWidow
-                    </div>
-                    <div>R$ 679,99</div>
-
-                    <input
-                      type="number"
-                      id="id10"
-                      class="form-control w-25 text-center"
-                      value="1"
-                    />
-                    <button class="btn btn-danger" id="remove10">
-                      Remover
-                    </button>
-                  </div>
-                </li>
-
-                <li class="list-group-item">
-                  <div
-                    class="d-flex g-2 justify-content-between align-items-center"
-                  >
-                    <div class="col-3">
-                      <img
-                        src="../src/img/bateriaAcerAspire.jpg"
-                        class="card-img-top object-fit-scale"
-                        height="100"
-                      />
-                    </div>
-                    <div class="col-3 text-center">Bateria Acer Aspire</div>
-                    <div>R$ 109,99</div>
-
-                    <input
-                      type="number"
-                      id="id11"
-                      class="form-control w-25 text-center"
-                      value="1"
-                    />
-                    <button class="btn btn-danger" id="remove11">
+                    <button class="btn btn-danger col-2" id="remove1">
                       Remover
                     </button>
                   </div>
@@ -367,8 +88,8 @@
               </ul>
             </div>
 
-            <div class="col-4">
-              <div class="card">
+            <div class="row col-sm-12 col-md-12 col-lg-4">
+              <div class="card col-sm-12 col-md-7 col-lg-12">
                 <div class="card-header">
                   <h5 class="card-title">Resumo do pedido</h5>
                 </div>
@@ -413,15 +134,20 @@
                 </div>
               </div>
 
-              <div class="border p-3 mt-3 d-none" id="qrPix">
+              <div
+                class="border p-3 d-none col-sm-12 col-md-5 col-lg-12 justify-content-center align-items-center"
+                id="qrPix"
+              >
                 <div class="d-flex justify-content-center align-items-center">
-                  <div id="qr-code"></div>
+                  <div id="qr-code" class="object-fit-scale"></div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="row mt-3">
+          <div
+            class="row mt-3 d-flex justify-content-lg-start justify-content-sm-evenly justify-content-md-evenly"
+          >
             <a href="index.html" class="btn btn-secondary me-3 col-2"
               >Adicionar mais itens</a
             >
