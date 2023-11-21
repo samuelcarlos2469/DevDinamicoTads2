@@ -20,14 +20,18 @@ function populate(produtos) {
                         height="100" />
                 </div>
                 <div class="col-3 text-center">${element.nome}</div>
-                <div>R$ ${element.total.toLocaleString("pt-BR")}</div>
+                <div class="text-center col-2"> R$ ${element.total.toLocaleString(
+                  "pt-BR"
+                )}</div>
                   
                 <input type="number" id="id${
                   element.id
-                }" class="form-control w-25 text-center" value="${
+                }" class="form-control text-center me-3" value="${
       element.quantidade
     }" />
-              <button class="btn btn-danger" id="remove${element.id}">Remover
+              <button class="btn btn-danger col-2" id="remove${
+                element.id
+              }">Remover
               </button>
           </div>
         </li>
