@@ -11,7 +11,7 @@ function populate(produtos) {
   produtos.forEach((element) => {
     html += `
         <div class="col-3">
-            <div class="card" style="width: 18rem;">
+            <div class="card text-center" style="width: 18rem;">
                 <img src="${
                   element.imagem
                 }" class="card-img-top object-fit-scale" height="200">

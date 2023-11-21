@@ -13,14 +13,13 @@ function populate(produtos) {
     html += `
         <li class="list-group-item">
             <div class="d-flex g-2 justify-content-between align-items-center">
-                <div>
+                <div class="col-3">
                     <img src="${
                       element.imagem
                     }" class="card-img-top object-fit-scale"
                         height="100" />
                 </div>
-
-                <div>${element.nome}</div>
+                <div class="col-3 text-center">${element.nome}</div>
                 <div>R$ ${element.total.toLocaleString("pt-BR")}</div>
                   
                 <input type="number" id="id${
@@ -28,7 +27,6 @@ function populate(produtos) {
                 }" class="form-control w-25 text-center" value="${
       element.quantidade
     }" />
-      
               <button class="btn btn-danger" id="remove${element.id}">Remover
               </button>
           </div>
