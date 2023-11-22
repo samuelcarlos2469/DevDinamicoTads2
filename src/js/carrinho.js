@@ -20,11 +20,14 @@ function populate(produtos) {
                         height="100" />
                 </div>
 
-                <div>${element.nome}</div>
-                <div>R$ ${element.total.toLocaleString("pt-BR", {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}</div>
+                <div class="col-3 text-center">${element.nome}</div>
+                <div class="text-center col-2">R$ ${element.total.toLocaleString(
+                  "pt-BR",
+                  {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }
+                )}</div>
                   
                 <input type="number" id="id${
                   element.id

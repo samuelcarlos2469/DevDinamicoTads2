@@ -15,7 +15,7 @@ function populate(produtos) {
                 <img src="${
                   element.imagem
                 }" class="card-img-top object-fit-scale" height="200">
-                <div class="card-body">
+                <div class="card-body text-center">
                 <h5 class="card-title">${element.nome}</h5>
                 <p class="card-text">R$ ${element.preco.toLocaleString(
                   "pt-BR",
