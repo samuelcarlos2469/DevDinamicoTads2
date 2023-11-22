@@ -10,15 +10,19 @@ function populate(produtos) {
 
   produtos.forEach((element) => {
     html += `
-        <div class="col-3">
-            <div class="card text-center" style="width: 18rem;">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 d-flex justify-content-center">
+            <div class="card" style="width: 18rem;">
                 <img src="${
                   element.imagem
                 }" class="card-img-top object-fit-scale" height="200">
                 <div class="card-body">
                 <h5 class="card-title">${element.nome}</h5>
                 <p class="card-text">R$ ${element.preco.toLocaleString(
-                  "pt-BR"
+                  "pt-BR",
+                  {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }
                 )} </p>
                 <button id="id${
                   element.id
